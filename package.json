@@ -1,0 +1,30 @@
+{
+  "name": "priceapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/handler.js",
+  "license": "",
+  "scripts": {
+    "runlocal": "serverless offline start",
+    "test": "mocha test/unit",
+    "itest": "serverless invoke test --path=./test/integration",
+    "coverage": "nyc npm run test"
+  },
+  "dependencies": {
+    "aws-param-store": "^2.1.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.452.0",
+    "aws-xray-sdk": "^2.3.3",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "serverless": "^1.45.1",
+    "serverless-dynamodb-local": "^0.2.37",
+    "serverless-mocha-plugin": "^1.10.0",
+    "serverless-offline": "^4.10.0",
+    "sinon": "^7.3.2",
+    "supertest": "^4.0.2"
+  }
+}

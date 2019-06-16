@@ -1,0 +1,94 @@
+openapi: "3.0.2"
+
+info:
+  version: 1.0.0
+  title: Example Price API
+
+servers:
+  - url: http:/localhost:3000
+    description: "local"
+  - url: https://example.com/apis/v1
+    description: "Production"
+
+paths:
+  /prices:
+    get:
+      summary: List all prices
+      tags:
+        - Price
+      parameters:
+        - name: channel
+          in: query
+          required: false
+          description: The market/channel to look up the prices for
+          schema:
+            type: string
+            default: "GBP"
+        - name: currency
+          in: query
+          required: false
+          description: The currency for the returned prices
+          schema:
+            type: string
+            default: "UK"
+      responses:
+        '200':
+          description: "List of prices for specified channel and currency"
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PricesSchema"
+  /prices/{itemId}:
+    get:
+      summary: Get price for a specific item
+      tags:
+        - Price
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          description: The ID of the product item to retrieve the price for
+          schema:
+            type: string
+        - name: channel
+          in: query
+          required: false
+          description: The market/channel to look up the price for
+          schema:
+            type: string
+            default: "GBP"
+        - name: currency
+          in: query
+          required: false
+          description: The currency for the returned price
+          schema:
+            type: string
+            default: "UK"
+      responses:
+        '200':
+          description: "Price for item for specified channel and currency"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PriceSchema"
+        '404':
+          description: Item not found
+
+components:
+  schemas:
+    PricesSchema:
+      type: array
+      items:
+        $ref: "#/components/schemas/PriceSchema"
+    PriceSchema:
+      type: object
+      required:
+        - price
+      properties:
+        price:
+          type: string

@@ -12,7 +12,8 @@
     "itest": "serverless invoke test --path=./test/integration",
     "coverage": "nyc npm run test",
     "deploy": "serverless deploy",
-    "taillog": "serverless logs -t -f"
+    "taillog": "serverless logs -t -f",
+    "dynamodb-install": "serverless dynamodb install"
   },
   "dependencies": {
     "aws-param-store": "^2.1.0"

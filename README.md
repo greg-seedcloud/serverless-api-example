@@ -1,6 +1,6 @@
-# PriceApiNodeJs
+# Serverless API Example
 
-A basic Price API template for building simple Lambda functions in NodeJs using the Serverless Framework.
+A very basic Price API template for building simple Lambda functions in NodeJs using the Serverless Framework.
 
 ## Setup and Installation
 
@@ -27,7 +27,7 @@ $ yarn install
 Run locally (browse to http://localhost:3000 to try the API)
 
 ```sh
-$ serverless offline start
+$ yarn runlocal
 ```
 
 Running unit tests:
@@ -36,7 +36,7 @@ Running unit tests:
 $ yarn test
 ```
 
-Running integration tests:
+Running integration tests (requires running server; `yarn runlocal` in other window):
 
 ```sh
 $ yarn itest
@@ -46,12 +46,12 @@ Play with offline DynamoDB: http://localhost:8001/shell/
 
 Deploying to AWS
 ```sh
-$ ./node_modules/.bin/serverless deploy
+$ yarn deploy
 ```
 
 Remote tail of lambda functions running in AWS:
 ```sh
-$ ./node_modules/.bin/serverless logs -f <functionName> -t
+$ yarn taillog <functionName>
 ```
 
-Note: Serverless in the commands above can be used interchangeably with sls for brevity.
+Note: `serverless` in the commands above can be used interchangeably with `sls` for brevity.

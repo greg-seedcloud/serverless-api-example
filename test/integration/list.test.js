@@ -1,3 +1,4 @@
+// noinspection JSUnresolvedFunction
 const mochaPlugin = require('serverless-mocha-plugin');
 const expect = mochaPlugin.chai.expect;
 let wrapped = mochaPlugin.getWrapper('list', '/src/lambda.js', 'getPrice');
@@ -31,16 +32,14 @@ describe('list', () => {
 
 });
 
-
-
-
 // TODO: not tested yet
 function startSlsOffline(done) {
-  slsOfflineProcess = spawn("sls", ["offline", "start"]);
-  console.log(`Serverless: Offline started with PID : ${slsOfflineProcess.pid}`);
+  slsOfflineProcess = spawn('sls', ['offline', 'start']);
+  console.log(
+      `Serverless: Offline started with PID : ${slsOfflineProcess.pid}`);
 
   slsOfflineProcess.stdout.on('data', (data) => {
-    if (data.includes("Offline listening on")) {
+    if (data.includes('Offline listening on')) {
       console.log(data.toString().trim());
       done();
     }
@@ -49,5 +48,5 @@ function startSlsOffline(done) {
 
 function stopSlsOffline() {
   slsOfflineProcess.kill();
-  console.log("Serverless Offline stopped");
+  console.log('Serverless Offline stopped');
 }

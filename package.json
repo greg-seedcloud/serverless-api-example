@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/handler.js",
-  "license": "",
+  "author": "Chris Turvil",
+  "private": true,
   "scripts": {
     "runlocal": "serverless offline start",
+    "lint": "eslint .",
     "test": "mocha test/unit",
     "itest": "serverless invoke test --path=./test/integration",
-    "coverage": "nyc npm run test"
+    "coverage": "nyc npm run test",
+    "deploy": "serverless deploy",
+    "taillog": "serverless logs -t -f"
   },
   "dependencies": {
     "aws-param-store": "^2.1.0"
@@ -18,6 +22,8 @@
     "aws-xray-sdk": "^2.3.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "serverless": "^1.45.1",

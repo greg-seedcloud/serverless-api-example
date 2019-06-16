@@ -20,6 +20,7 @@ A very basic Price API template for building simple Lambda functions in NodeJs u
 
 ```sh
 $ yarn install
+$ yarn dynamodb-install
 ```
 
 ## Running the code
@@ -54,4 +55,4 @@ Remote tail of lambda functions running in AWS:
 $ yarn taillog <functionName>
 ```
 
-Note: `serverless` in the commands above can be used interchangeably with `sls` for brevity.
+Note: The command `serverless` can be used interchangeably with `sls` for brevity.

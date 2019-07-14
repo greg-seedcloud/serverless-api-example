@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "aws-param-store": "^2.1.0",
-    "lodash": "^4.17.14"
+    "lodash": "^4.17.14",
+    "node.extend": "^2.0.2"
   },
   "devDependencies": {
     "aws-sdk": "^2.452.0",

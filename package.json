@@ -16,7 +16,8 @@
     "dynamodb-install": "serverless dynamodb install"
   },
   "dependencies": {
-    "aws-param-store": "^2.1.0"
+    "aws-param-store": "^2.1.0",
+    "lodash": "^4.17.14"
   },
   "devDependencies": {
     "aws-sdk": "^2.452.0",
